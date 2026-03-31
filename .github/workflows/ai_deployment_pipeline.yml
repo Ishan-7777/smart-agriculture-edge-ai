@@ -1,0 +1,48 @@
+name: SmartAgri AI DevOps Pipeline
+
+# 1. TRIGGER: When does this pipeline run?
+# Automatically runs whenever new AI code is pushed to the repository.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test-ai:
+    # 2. ENVIRONMENT: Simulating a clean Cloud Server
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Download the project code onto the cloud server
+      - name: 📥 Checkout Repository Code
+        uses: actions/checkout@v3
+
+      # Step 2: Install the correct version of Python
+      - name: 🐍 Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # Step 3: Install all required AI and Analytics libraries
+      - name: 📦 Install AI Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy tensorflow scikit-learn
+
+      # Step 4: Run Automated Tests on the AI Model
+      # If the model crashes or fails to train, the DevOps pipeline blocks the deployment!
+      - name: 🧠 Train and Validate TinyML Model
+        run: |
+          echo "Triggering automated AI training..."
+          python src/train_model.py
+
+      # Step 5: Save the generated TinyML model as an Artifact
+      # This file can now be safely deployed to the Arduino Edge nodes via OTA (Over The Air) updates.
+      - name: 💾 Upload Edge Model Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: edge-ai-model
+          path: models/crop_prediction_model.tflite
