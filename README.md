@@ -19,7 +19,7 @@ An end-to-end IoT + Edge AI system that predicts crop health using environmental
 This project is currently under development and being actively improved.
 
 ## 🏗️ System Architecture
-
+- This diagram shows the end-to-end pipeline from sensor data collection to final dashboard insights.
 ```mermaid
 graph TD
     %% Define styles for the boxes
@@ -63,6 +63,9 @@ graph TD
 4. **Distributed Big Data:** Utilized Apache Spark to process a massive historical climate dataset (100,000+ rows), grouping data across farm regions to detect extreme weather anomalies.
 5. **CI/CD Pipeline:** Developed an automated DevOps orchestrator (`devops_pipeline.py`) and a GitHub Actions `.yml` workflow to automatically test, build, and deploy the AI model to production without human intervention.
 
+## 📸 Sample Outputs
+![Temperature vs Moisture](reports/Graph1_Temp_vs_Moisture.png)
+![Humidity Distribution](reports/Graph2_Humidity_Boxplot.png)
 ## 👨‍💻 How to Run
 Run the master DevOps pipeline to execute all stages automatically:
 `python src/devops_pipeline.py`
