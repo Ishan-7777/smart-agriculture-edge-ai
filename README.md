@@ -1,14 +1,22 @@
-# 🌾 Smart Agriculture Analytics Platform (IoT Digital Twin)
+# 🌱 Smart Agriculture Edge AI Platform (WIP)
 
-## 📌 Project Overview
-This project is a **Software-Defined IoT Platform** simulating an end-to-end Smart Agriculture system. It demonstrates the complete data lifecycle: from Edge AI sensor simulation to Big Data cloud analytics, interactive data visualization, and automated DevOps deployment.
+## 🚀 Overview
+An end-to-end IoT + Edge AI system that predicts crop health using environmental data and processes large-scale climate datasets using PySpark.
 
-## 🚀 Technologies & Frameworks Used
-* **Unit I (Edge AI/Hardware):** Wokwi IoT Simulator, TinyML (TensorFlow Lite), Python Data Generation
-* **Unit II (Analytics & Automation):** R Language (`ggplot2`, `dplyr`), Python Subprocess Automation
-* **Unit III (Business Intelligence):** Microsoft Power BI
-* **Unit IV (Big Data Processing):** Apache Spark (`PySpark`)
-* **Unit V (DevOps / MLOps):** GitHub Actions (CI/CD), Automated Local Deployment Pipeline
+## ⚙️ Tech Stack
+- Python, PySpark  
+- TensorFlow Lite (TinyML)  
+- R (EDA)  
+- Power BI  
+- GitHub Actions (CI/CD)
+
+## 📊 Key Highlights
+- Processed 100,000+ climate records  
+- Built edge-level ML prediction system  
+- Designed interactive dashboard for insights  
+
+## 🚧 Status
+This project is currently under development and being actively improved.
 
 ## 🏗️ System Architecture
 1. **IoT Edge Simulation:** Generated synthetic sensor data (Soil Moisture, Temp, pH) and deployed a quantized `TinyML` neural network to simulate real-time edge predictions.
