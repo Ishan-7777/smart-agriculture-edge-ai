@@ -19,6 +19,44 @@ An end-to-end IoT + Edge AI system that predicts crop health using environmental
 This project is currently under development and being actively improved.
 
 ## 🏗️ System Architecture
+
+```mermaid
+graph TD
+    %% Define styles for the boxes
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef source fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
+    classDef process fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
+    classDef output fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;
+
+    %% The Nodes (Boxes)
+    A[📡 Simulated Sensor Data]:::source
+    B[⚙️ Data Preprocessing]:::process
+    
+    C[🧠 ML Model <br> TinyML Edge]:::process
+    D[🌍 Big Data <br> Apache Spark]:::process
+    E[📊 EDA & Stats <br> R Language]:::process
+    
+    F[Edge Predictions]
+    G[Climate Insights]
+    H[Automated Analysis]
+    
+    I[💻 Interactive Dashboard <br> Power BI]:::output
+
+    %% The Connections (Arrows)
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    
+    C --> F
+    D --> G
+    E --> H
+    
+    F --> I
+    G --> I
+    H --> I
+```
+    
 1. **IoT Edge Simulation:** Generated synthetic sensor data (Soil Moisture, Temp, pH) and deployed a quantized `TinyML` neural network to simulate real-time edge predictions.
 2. **Automated Data Processing:** Engineered a pipeline that triggers R scripts to clean data and generate statistical distributions (Scatter, Boxplots, Density).
 3. **Interactive Dashboard:** Built a Power BI dashboard with dynamic filtering to provide farmers with real-time KPI gauges and crop health ratios.
